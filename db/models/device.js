@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   class Device extends Model {
     static associate({Type,Order}) {
       this.belongsTo(Type, { foreignKey: 'type_id' });
-      this.belongsTo(Order, { foreignKey: 'device_id' });
+      this.hasMany(Order, { foreignKey: 'device_id' });
     }
   }
   Device.init({
