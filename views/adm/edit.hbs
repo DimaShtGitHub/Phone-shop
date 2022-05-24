@@ -1,0 +1,23 @@
+<ul class="adm-nav">
+  <li><a href="/admin/">Back</a></li>
+  <li><a href="/admin/add">Add device</a></li>
+</ul>
+
+<h2>Items:</h2>
+<div class="items">
+{{#each items}}
+  <div class="item" id="{{this.id}}">
+    <div class="dev-name">{{this.name}}</div>
+    <div class="dev-price">{{this.price}}</div>
+    <div class="dev-cat">{{this.cat}}</div>
+    <button class="edit">Edit</button>
+    <button class="delete">Delete</button>
+  </div>
+{{/each}}
+</div>
+<script src="/js/adm/edit.js"></script>
+<div style="visibility: hidden">
+  {{#each cats}}
+    <div class="cats">{{this.name}}</div>
+  {{/each}}
+</div>
