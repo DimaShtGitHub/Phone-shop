@@ -12,7 +12,9 @@ module.exports = (sequelize, DataTypes) => {
   Order.init({
     device_id: DataTypes.INTEGER,
     new_dev: DataTypes.BOOLEAN,
-    status_id: DataTypes.INTEGER
+    status_id: DataTypes.INTEGER,
+    name: DataTypes.STRING,
+    number: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Order',
