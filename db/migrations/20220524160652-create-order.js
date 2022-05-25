@@ -31,6 +31,12 @@ module.exports = {
       new_dev: {
         type: Sequelize.BOOLEAN
       },
+      name: {
+       type: Sequelize.STRING       
+      },
+      number: {
+        type: Sequelize.STRING       
+       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
