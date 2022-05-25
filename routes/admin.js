@@ -9,7 +9,6 @@ const {
   delDevice,
   editDevice
 } = require('../controllers/admin.control');
-
 router.get('/', isAdmin, adminPage);
 router.get('/add', isAdmin, addPage)
 router.get('/edit', isAdmin, editPage);
