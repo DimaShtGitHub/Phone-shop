@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon app.js --ignore sessions"
+    "start": "node app.js",
+    "dev": "nodemon app.js --ignore sessions"
   },
   "dependencies": {
     "debug": "~2.6.9",
