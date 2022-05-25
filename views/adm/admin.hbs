@@ -8,11 +8,21 @@
   {{#each orders}}
     <div class="table" id="{{this.id}}">
       <div>{{this.id}}</div>
-      <div>{{this.name}}</div>
-      <div>{{this.new_dev}}</div>
-      <div>{{this.price}}</div>
-      <div>{{this.status}}</div>
+      <div class="device">{{this.phone_name}}</div>
+      <div class="new">{{this.new_dev}}</div>
+      <div class="price">{{this.price}}</div>
+      <div class="name">{{this.name}}</div>
+      <div class="phone">{{this.phone}}</div>
+      <div class="status">{{this.status}}</div>
       <button class="edit">change status</button>
     </div>
   {{/each}}
 </div>
+
+<div class="arr-status" style="visibility: hidden">
+  {{#each statuses}}
+    <div class="stat">{{this.name}}</div>
+  {{/each}}
+</div>
+<script src="/js/adm/change.js"></script>
+
