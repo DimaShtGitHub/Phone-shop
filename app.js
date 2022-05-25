@@ -4,13 +4,18 @@ const express = require('express');
 const sessions = require('express-session');
 const FileStore = require('session-file-store')(sessions);
 const path = require('path');
+const hbs = require('hbs')
 
 const logger = require('morgan');
 const {sequelize} = require('./db/models');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+
+const deviceRouter = require('./routes/deviceRouter');
+
 const adminRouter = require('./routes/admin');
+
 
 const app = express();
 
@@ -37,9 +42,12 @@ app.use(sessions({
 ))
 
 app.use(express.static(path.join(__dirname, 'public')));
-
+hbs.registerPartials((path.join(__dirname, 'views', 'partials')))
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+app.use('/device', deviceRouter)
+
 app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler

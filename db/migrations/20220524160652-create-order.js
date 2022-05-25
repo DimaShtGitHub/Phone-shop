@@ -18,6 +18,16 @@ module.exports = {
          key: 'id',
        },       
       },
+      status_id: {
+        type: Sequelize.INTEGER,
+          allowNull: false,
+          references: {
+          model: {
+           tableName: 'Statuses',
+         },
+         key: 'id',
+       },       
+      },
       new_dev: {
         type: Sequelize.BOOLEAN
       },

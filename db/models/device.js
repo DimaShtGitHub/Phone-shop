@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Device.init({
     name: DataTypes.STRING,
+    info: DataTypes.STRING,
     price: DataTypes.INTEGER,
     img: DataTypes.STRING,
     new_device: DataTypes.BOOLEAN,
