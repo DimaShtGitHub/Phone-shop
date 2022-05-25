@@ -1,7 +1,6 @@
 const {Admin, Order, Device, Type, Status} = require('../db/models')
 
 exports.isAdmin = (req, res, next) => {
-  console.log('test')
   if (!req.session?.isAdmin) return res.render('adm/login')
   next();
 }
@@ -26,14 +25,19 @@ exports.admLogin = async (req, res) => {
 }
 
 exports.adminPage = async (req, res) => {
-  const allOrders = await Order.findAll({include: [Device, Status], order: [['id', "DESC"]], raw: true});
-  console.log(allOrders)
+  let allOrders;
+  try {
+    allOrders = await Order.findAll({include: [Device, Status], order: [['id', "DESC"]], raw: true});
+  } catch (err) {
+    console.log('!!!!!!!!!!!!!!!!!', err.message)
+    return
+  }
   const orders = allOrders.map(el => { return {
     id: el.id,
     phone_name: el['Device.name'],
     new_dev: el.new_dev,
     name: el.name,
-    phone: el.phone,
+    phone: el.number,
     price: el['Device.price'],
     status: el['Status.name']
   }});
@@ -47,7 +51,6 @@ exports.addPage = async (req, res) => {
 }
 
 exports.addDevice = async (req, res) => {
-  console.log(req.body)
   try {
     const cat = await Type.findOne({where: {name: req.body.category}})
     const newDevice = await Device.create({name: req.body.name, price: req.body.price, type_id: cat.id})
@@ -65,7 +68,6 @@ exports.editPage = async (req, res) => {
 }
 
 exports.delDevice = async (req, res) => {
-  console.log(req.params.id)
   try {
     await Device.destroy({
       where: {id: req.params.id}
@@ -87,13 +89,11 @@ exports.editDevice = async (req, res) => {
 }
 
 exports.updStatus = async (req, res) => {
-  console.log(req.body)
   try {
     const status = await Status.findOne( {
       where:
         {name: req.body.status}
     })
-    console.log('!!!!!!!!', status.id)
     await Order.update(
       {status_id: status.id},
       { where: {id: req.body.id}}
