@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     new_dev: DataTypes.BOOLEAN,
     status_id: DataTypes.INTEGER,
     name: DataTypes.STRING,
-    number: DataTypes.STRING
+    number: DataTypes.STRING,
+    comment: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Order',
