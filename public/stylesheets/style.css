@@ -1,8 +1,96 @@
-body {
+/* body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+} */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px;
+  background-color: rgb(246, 233, 148);
+  border-radius: 6px;
 }
+
+.site-name {
+  font-family: Calibri, sans-serif;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.788);
+  font-weight: 600;
+  padding: 5px;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-family: Calibri, sans-serif;
+  font-size: 12px;
+  font-weight: 200;
+  color: rgb(80, 80, 80);
+  padding: 5px;
+}
+
+.menu-point {
+  padding: 3px;
+}
+
+.login {
+  font-family: Calibri, sans-serif;
+  font-size: 17px;
+  color: rgb(80, 80, 80);
+  font-weight: 400;
+  padding: 5px;
+}
+
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+
+.content-name {
+  font-family: Calibri, sans-serif;
+  font-size: 20px;
+  color: rgb(80, 80, 80);
+  font-weight: 300;
+  margin-left: 4px;
+}
+
+.categories {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.one-category {
+  position: relative;
+  padding: 5px;
+  width: 200px;
+  height: 320px;
+}
+
+.img {
+  width: 200px;
+  height: 280px;
+}
+
+.category-name {
+  font-family: Calibri, sans-serif;
+  font-size: 20px;
+  color: rgb(80, 80, 80);
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+
+
+
+
