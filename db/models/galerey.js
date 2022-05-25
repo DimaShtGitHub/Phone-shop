@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
      static associate(models) {
       this.belongsTo(models.Device, {
-         foreignKey: 'device_id',
+         foreignKey: 'device_id'
       });
       }
   }

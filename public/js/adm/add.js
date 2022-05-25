@@ -2,20 +2,11 @@ const formAdd = document.admAdd
 
 formAdd.addEventListener('submit', async (event) => {
   event.preventDefault();
-
-  const {
-    name: {value: name},
-    price: {value: price},
-    category: {value: category}
-  } = event.target
-  console.log(name, price, category)
+  const formData = new FormData(formAdd)
 
   const req = await fetch('/admin/add', {
     method: "POST",
-    headers: {
-      "Content-type": "application/json"
-    },
-    body: JSON.stringify({name, price, category})
+    body: formData
   })
 
   if (req.ok) {
