@@ -68,6 +68,7 @@ a {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-top: 15px;
 }
 
 .one-category {
@@ -91,6 +92,15 @@ a {
 }
 
 
+.price {
+  font-family: Calibri, sans-serif;
+  font-size: 15px;
+  color: rgb(80, 80, 80);
+  font-weight: 500;
+}
 
-
+#card {
+  margin-bottom: 15px;
+  margin-right: 15px;
+}
 

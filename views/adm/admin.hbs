@@ -1,0 +1,18 @@
+<ul class="adm-nav">
+  <li><a href="/admin/add">Add device</a></li>
+  <li><a href="/admin/edit">Edit device</a></li>
+</ul>
+
+<h2>Orders:</h2>
+<div class="orders">
+  {{#each orders}}
+    <div class="table" id="{{this.id}}">
+      <div>{{this.id}}</div>
+      <div>{{this.name}}</div>
+      <div>{{this.new_dev}}</div>
+      <div>{{this.price}}</div>
+      <div>{{this.status}}</div>
+      <button class="edit">change status</button>
+    </div>
+  {{/each}}
+</div>
