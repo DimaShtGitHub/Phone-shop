@@ -1,0 +1,18 @@
+<ul class="adm-nav">
+  <li><a href="/admin">Back</a></li>
+  <li><a href="/admin/edit">Edit device</a></li>
+</ul>
+
+<form action="/admin/add" method="post" name="admAdd">
+  <input name="name" type="text">
+  <input name="price" type="number">
+  <select name="category">
+    {{#each cats}}
+      <option>{{this.name}}</option>
+    {{/each}}
+  </select>
+  <button type="submit">Add</button>
+</form>
+<div class="msg"></div>
+
+<script src="/js/adm/add.js"></script>
