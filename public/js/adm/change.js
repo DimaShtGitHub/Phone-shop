@@ -32,14 +32,14 @@ orders.addEventListener('click', (event) => {
         headers: {
           "Content-type": "application/json"
         },
-        body: JSON.stringify({status})
+        body: JSON.stringify({status, id: devId})
       })
 
       if (req.ok) {
         par.querySelector('.upd-status').remove()
         par.querySelector('.status').innerHTML = status
-        par.innerHTML +=
-        par.querySelector('.save').remove()
+        par.querySelector('.save').remove();
+        par.innerHTML += `<button class="edit">change status</button>`
       } else {
         alert((await req.json()).message)
       }

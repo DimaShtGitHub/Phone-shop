@@ -26,7 +26,8 @@ exports.admLogin = async (req, res) => {
 }
 
 exports.adminPage = async (req, res) => {
-  const allOrders = await Order.findAll({include: Device, raw: true});
+  const allOrders = await Order.findAll({include: [Device, Status], order: [['id', "DESC"]], raw: true});
+  console.log(allOrders)
   const orders = allOrders.map(el => { return {
     id: el.id,
     phone_name: el['Device.name'],
@@ -86,9 +87,17 @@ exports.editDevice = async (req, res) => {
 }
 
 exports.updStatus = async (req, res) => {
+  console.log(req.body)
   try {
-    const status = await Status.findOne({where: {name: req.body.status}})
-    await Order.update({status_id: status.id}, {where: {id: req.body.id}})
+    const status = await Status.findOne( {
+      where:
+        {name: req.body.status}
+    })
+    console.log('!!!!!!!!', status.id)
+    await Order.update(
+      {status_id: status.id},
+      { where: {id: req.body.id}}
+    )
   } catch (err) {
     console.log(err)
     return res.status(500).end();
