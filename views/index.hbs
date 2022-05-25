@@ -3,15 +3,16 @@
       <h3>Категории товаров</h3>
     </div>
 
-    <div class="categories">
+    <div class="categ">
 
      {{#each categories}}
-      <div class="one-category">
-        <div class="category-name">{{this.name}}</div>
-        <div><img class="img" src="/img/{{this.imgurl}}"></div>
+      <div  class="one-category">
+        <div id="{{this.id}}" class="category-name">{{this.name}}</div>
+        <div><img id="{{this.id}}" class="img" src="{{this.img}}"></div>
       </div>
       {{/each}}
 
     </div>
     
   </div>
+
