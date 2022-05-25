@@ -4,6 +4,7 @@ const express = require('express');
 const sessions = require('express-session');
 const FileStore = require('session-file-store')(sessions);
 const path = require('path');
+const hbs = require('hbs')
 
 const logger = require('morgan');
 const {sequelize} = require('./db/models');
@@ -41,7 +42,7 @@ app.use(sessions({
 ))
 
 app.use(express.static(path.join(__dirname, 'public')));
-
+hbs.registerPartials((path.join(__dirname, 'views', 'partials')))
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 

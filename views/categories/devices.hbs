@@ -1,0 +1,23 @@
+
+<div class="content">
+    {{#if type}}
+    <h3>{{type.name}}</h3>
+    {{/if}}
+
+    <div class="categories">
+
+    {{#each devices}}
+      <div id="card" class="card" style="width: 18rem;">
+        <img src="{{this.img}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{this.name}}</h5>
+          <p class="card-text">{{this.info}}</p>
+          <p class="card-text">Цена: {{this.price}} руб.</p>
+          {{!-- <a href="#" class="btn btn-primary">Заказать</a> --}}
+        </div>
+      </div>
+    {{/each}}
+
+    </div>
+    
+</div>
