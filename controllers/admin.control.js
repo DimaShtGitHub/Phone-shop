@@ -51,6 +51,9 @@ exports.addPage = async (req, res) => {
 }
 
 exports.addDevice = async (req, res) => {
+  for (let file in req.files) {
+      await req.files[file].mv('public/upload/' + req.files[file].name)
+  }
   try {
     const cat = await Type.findOne({where: {name: req.body.category}})
     const newDevice = await Device.create({name: req.body.name, price: req.body.price, type_id: cat.id})

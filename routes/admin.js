@@ -8,7 +8,8 @@ const {
   editPage,
   delDevice,
   editDevice,
-  updStatus
+  updStatus,
+  uploadImg
 } = require('../controllers/admin.control');
 
 router.get('/', isAdmin, adminPage);

@@ -81,3 +81,17 @@ itemsBox.addEventListener('click', async (event) => {
     })
   }
 })
+
+
+// const uploadImg = document.fileUpload
+
+// uploadImg.addEventListener('submit', async (event) => {
+//   event.preventDefault();
+//   console.log(event.target.files)
+//   const formData = new FormData(uploadImg)
+//
+//   const req = await fetch('/admin/upload', {
+//     method: "POST",
+//     body: formData
+//   })
+// })

@@ -3,8 +3,10 @@ const createError = require('http-errors');
 const express = require('express');
 const sessions = require('express-session');
 const FileStore = require('session-file-store')(sessions);
+const fileUpload = require('express-fileupload');
 const path = require('path');
 const hbs = require('hbs')
+
 
 const logger = require('morgan');
 const {sequelize} = require('./db/models');
@@ -28,6 +30,7 @@ app.set('view engine', 'hbs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(fileUpload({}));
 app.use(sessions({
     store: new FileStore(),
     name: 'aid',
@@ -43,6 +46,7 @@ app.use(sessions({
 
 app.use(express.static(path.join(__dirname, 'public')));
 hbs.registerPartials((path.join(__dirname, 'views', 'partials')))
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
