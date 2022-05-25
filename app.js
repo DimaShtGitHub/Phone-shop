@@ -4,11 +4,7 @@ const express = require('express');
 const sessions = require('express-session');
 const FileStore = require('session-file-store')(sessions);
 const path = require('path');
-<<<<<<< HEAD
-const hbs = require('hbs');
-=======
 const hbs = require('hbs')
->>>>>>> master
 
 const logger = require('morgan');
 const {sequelize} = require('./db/models');
