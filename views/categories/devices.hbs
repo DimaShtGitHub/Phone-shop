@@ -7,13 +7,13 @@
     <div class="categories">
 
     {{#each devices}}
-      <div id="card" class="card" style="width: 18rem;">
+      <div id="{{this.id}}" class="card" style="width: 18rem;">
         <img src="{{this.img}}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">{{this.name}}</h5>
           <p class="card-text">{{this.info}}</p>
           <p class="card-text">Цена: {{this.price}} руб.</p>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Заказать!</button>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap" id="btnZakaz">Заказать!</button>
           {{> winalert}}
         </div>
       </div>
