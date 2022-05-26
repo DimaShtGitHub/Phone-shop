@@ -11,7 +11,7 @@ const {sequelize} = require('./db/models');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-
+const orderRouter = require('./routes/orderRouter');
 
 const deviceRouter = require('./routes/deviceRouter');
 
@@ -48,7 +48,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 app.use('/device', deviceRouter)
-
+app.use('/order', orderRouter)
 
 app.use('/admin', adminRouter);
 

@@ -6,7 +6,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="/order/add" method="post" name="OrderAdd">
+        {{!-- <form action="/admin/add" method="post" name="admAdd"></form> --}}
+        <form action="/order/add" method="post" name="orderAdd" id="orderAdd">
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Ваше имя:</label>
             <input type="text" class="form-control" id="recipient-name" name = "name">
@@ -19,11 +20,11 @@
             <label for="message-text" class="col-form-label">Комментарии:</label>
             <textarea class="form-control" id="message-text" name="message"></textarea>
           </div>
-        </form>
-      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-        <button type="button" class="btn btn-primary">Отправить</button>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+      </div>
+        </form>
       </div>
     </div>
   </div>
