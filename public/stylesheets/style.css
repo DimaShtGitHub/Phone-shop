@@ -71,11 +71,19 @@ a {
   margin-top: 15px;
 }
 
+.categ {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 .one-category {
   position: relative;
   padding: 5px;
   width: 200px;
   height: 320px;
+  margin-top: 30px;
+  margin-right: 14px;
 }
 
 .img {
@@ -88,7 +96,6 @@ a {
   font-size: 20px;
   color: rgb(80, 80, 80);
   font-weight: 600;
-  margin-bottom: 15px;
 }
 
 
@@ -99,8 +106,4 @@ a {
   font-weight: 500;
 }
 
-#card {
-  margin-bottom: 14px;
-  margin-right: 14px;
-}
 
