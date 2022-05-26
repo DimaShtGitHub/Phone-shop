@@ -1,0 +1,29 @@
+
+<div class="content">
+    {{#if type}}
+    <h3>{{type.name}}</h3>
+    {{/if}}
+
+    <div class="select-new-bu">
+      <a href="/device/new/{{type.id}}" class="new">{{selectType.first}}</a>
+      <a href="/device/bu/{{type.id}}" class="bu">{{selectType.second}}</a>
+      <a href="/device/{{type.id}}" class="all">{{selectType.third}}</a>
+    </div>
+
+    <div class="categories">
+
+    {{#each allDev}}
+      <div id="{{this.id}}" class="card" style="width: 18rem; margin-bottom: 14px; margin-right: 14px;">
+        <img src="{{this.img}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{this.name}}</h5>
+          <p class="card-text">{{this.info}}</p>
+          <p class="card-text">Цена: {{this.price}} руб.</p>
+          <a href="#" class="btn btn-primary">Заказать</a>
+        </div>
+      </div>
+    {{/each}}
+
+    </div>
+    
+</div>
