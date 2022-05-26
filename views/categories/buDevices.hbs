@@ -19,7 +19,8 @@
           <h5 class="card-title">{{this.name}}</h5>
           <p class="card-text">{{this.info}}</p>
           <p class="card-text">Цена: {{this.price}} руб.</p>
-          <a href="#" class="btn btn-primary">Заказать</a>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap" id="btnZakaz">Заказать!</button>
+          {{> winalert}}
         </div>
       </div>
     {{/each}}
