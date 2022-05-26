@@ -83,6 +83,12 @@ body {
   margin-top: 15px;
 }
 
+.categ {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 .one-category {
   position: relative;
   padding: 5px;
@@ -102,7 +108,6 @@ body {
   font-size: 20px;
   color: rgb(80, 80, 80);
   font-weight: 600;
-  margin-bottom: 15px;
 }
 
 
@@ -113,9 +118,9 @@ body {
   font-weight: 500;
 }
 
-#card {
-  margin-bottom: 14px;
-  margin-right: 14px;
+
+.adm-table {
+    display: flex;
 }
 
 /* -------------------------bootstrap */
@@ -144,4 +149,29 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 10px;
+}
+
+.adm-table div {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    width: 150px;
+    min-width: 30px;
+}
+
+.adm-item {
+    display: flex;
+}
+
+.adm-item div {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    width: 150px;
+    min-width: 30px;
+}
+
+.upd-status {
+    width: 100px;
+
 }
