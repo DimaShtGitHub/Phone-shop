@@ -1,4 +1,4 @@
-const {Admin, Order, Device, Type, Status} = require('../db/models')
+const {Admin, Order, Device, Type, Status, Galerey} = require('../db/models')
 
 exports.isAdmin = (req, res, next) => {
   if (!req.session?.isAdmin) return res.render('adm/login')
@@ -51,9 +51,28 @@ exports.addPage = async (req, res) => {
 }
 
 exports.addDevice = async (req, res) => {
+  console.log(req.body.new)
   try {
     const cat = await Type.findOne({where: {name: req.body.category}})
-    const newDevice = await Device.create({name: req.body.name, price: req.body.price, type_id: cat.id})
+
+    const newDevice = await Device.create({
+      name: req.body.name,
+      info: req.body.info,
+      price: req.body.price,
+      type_id: cat.id,
+      new_device: ((req.body.new === 'on') ? true : false)
+    })
+
+    for (let file in req.files) {
+      const format = req.files[file].name.split('.').at(-1)
+      const pathImg = 'upload/'
+        + (Math.random().toString(36).substring(2,7))
+        + (Math.random().toString(36).substring(2,7))
+        + '.' + format
+      await req.files[file].mv(`public/${pathImg}`)
+      await Galerey.create({device_id: newDevice.id, img: pathImg})
+    }
+
   } catch (err) {
     return res.status(500).json({message: err.message})
   }
@@ -63,12 +82,20 @@ exports.addDevice = async (req, res) => {
 exports.editPage = async (req, res) => {
   const devices = await Device.findAll({include: Type, raw: true});
   const cats = await Type.findAll({attributes: ['name']});
-  const items = devices.map(el => {return {id: el.id, name: el.name, price: el.price, cat: el['Type.name']}})
+  const items = devices.map(el => {return {id: el.id, name: el.name, price: el.price, cat: el['Type.name'], info: el.info}})
   res.render('adm/edit', {items, cats})
 }
 
 exports.delDevice = async (req, res) => {
   try {
+    const images = await Galerey.findAll({where: {device_id: req.params.id}})
+
+    for (const img of images) {
+      await Galerey.destroy({
+        where: {
+          id: img.id
+        }})
+    }
     await Device.destroy({
       where: {id: req.params.id}
     })
@@ -81,7 +108,7 @@ exports.delDevice = async (req, res) => {
 exports.editDevice = async (req, res) => {
   try {
     const cat = await Type.findOne({where: {name: req.body.cat}})
-    await Device.update({name: req.body.name, price: req.body.price, type_id: cat.id}, {where: {id: req.params.id}})
+    await Device.update({name: req.body.name, price: req.body.price, type_id: cat.id, info: req.body.info}, {where: {id: req.params.id}})
   } catch (err) {
     res.status(500).json({message: err.message})
   }

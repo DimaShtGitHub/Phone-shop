@@ -4,14 +4,18 @@
 </ul>
 
 <form action="/admin/add" method="post" name="admAdd">
-  <input name="name" type="text">
-  <input name="price" type="number">
-  <select name="category">
+  <p><input name="name" type="text" placeholder="Name"></p>
+  <p><input name="info" type="text" placeholder="Info"></p>
+  <p><input name="price" type="number" placeholder="Price"></p>
+  <p>Is new device: <input name="new" type="checkbox" placeholder="is new"></p>
+  <p><select name="category">
     {{#each cats}}
       <option>{{this.name}}</option>
     {{/each}}
-  </select>
-  <button type="submit">Add</button>
+  </select></p>
+  <p><input type="file" name="img"></p>
+  <p><input type="file" name="img2"></p>
+  <p><button type="submit">Add</button></p>
 </form>
 <div class="msg"></div>
 
