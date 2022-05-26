@@ -107,3 +107,30 @@ a {
 }
 
 
+.adm-table {
+    display: flex;
+}
+
+.adm-table div {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    width: 150px;
+    min-width: 30px;
+}
+
+.adm-item {
+    display: flex;
+}
+
+.adm-item div {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    width: 150px;
+    min-width: 30px;
+}
+
+.upd-status {
+    width: 100px;
+}

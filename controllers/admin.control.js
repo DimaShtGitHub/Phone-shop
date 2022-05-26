@@ -35,11 +35,12 @@ exports.adminPage = async (req, res) => {
   const orders = allOrders.map(el => { return {
     id: el.id,
     phone_name: el['Device.name'],
-    new_dev: el.new_dev,
+    new_dev: el['Device.new_device'],
     name: el.name,
     phone: el.number,
     price: el['Device.price'],
-    status: el['Status.name']
+    status: el['Status.name'],
+    comment: el.comment
   }});
   const statuses = await Status.findAll({attributes: ['name']})
   res.render('adm/admin', {orders, statuses});
