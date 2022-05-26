@@ -134,3 +134,18 @@ a {
 .upd-status {
     width: 100px;
 }
+
+.adm-items {
+    display: flex;
+
+}
+
+.adm-img {
+    width: 200px;
+    height: 200px;
+}
+
+.adm-card {
+    margin: 20px;
+    border: 2px solid black;
+}
