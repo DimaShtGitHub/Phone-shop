@@ -7,8 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate({Type,Order,Galerey}) {
       this.belongsTo(Type, { foreignKey: 'type_id' });
       this.hasMany(Order, { foreignKey: 'device_id' });
-      this.hasMany(Galerey, {foreignKey: 'device_id',
-      });
+      this.hasMany(Galerey, {foreignKey: 'device_id'});
     }
   }
   Device.init({
