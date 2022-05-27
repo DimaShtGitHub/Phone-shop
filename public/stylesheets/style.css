@@ -8,7 +8,7 @@ a {
 } */
 
 body {
-  background-color: rgb(175, 170, 181);
+  background-color: rgb(175 170 181 / 31%);
   /* display: flex;
   align-items: center; */
 }
@@ -54,7 +54,7 @@ body {
 }
 
 .allcontent {
-  min-height: 700px;
+  min-height: 900px;
 }
 
 .video {
@@ -86,13 +86,15 @@ body {
 .category-name {
   font-family: Calibri, sans-serif;
   font-size: 20px;
-  color: rgb(80, 80, 80);
+  color: rgb(244 239 239);
   font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
 .categories {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   margin-top: 15px;
 }
@@ -106,22 +108,24 @@ body {
 .one-category {
   position: relative;
   /* padding: 5px; */
-  width: 200px;
+  width: 290px;
   height: 320px;
   margin-top: 30px;
   margin-right: 14px;
-  padding: 6px; border-radius: 14px;
-  background-color: #9e9e9e;
+  padding: 6px; border-radius: 34px;
+  border: 3px solid #685f5f;
+  background-color: lightgrey;
 }
 
 .img {
-  max-width: 187px;
-  max-height: 274px;
+  max-width: 300px;
+  max-height: 300px;
 }
 
 .img_carusel {
   max-height: 250px;
-  max-width: 200;
+  max-width: 238px;
+  border-radius: 5%;
 }
 
 .category-name {
@@ -210,4 +214,14 @@ body {
 .adm-card {
     margin: 20px;
     border: 2px solid black;
+}
+
+.card {
+  background-color: lightgray;
+  padding: 6px; border-radius: 34px;
+  border: 3px solid #685f5f;
+}
+
+.card-img-top {
+  border-radius: 34px;
 }
