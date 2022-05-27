@@ -79,6 +79,10 @@ body {
   flex-wrap: wrap;
 }
 
+.categ a {
+  text-decoration: none;
+}
+
 .category-name {
   font-family: Calibri, sans-serif;
   font-size: 20px;

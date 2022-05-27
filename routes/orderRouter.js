@@ -17,9 +17,13 @@ router.post('/', async (req, res) => {
 router.get('/:url', async (req, res) => {
   const uniqUrl = req.params.url;
   const status = await Order.findOne({where: {url: uniqUrl}})
-  const myStatus = await Status.findOne({where: {id: status.status_id}})
-  const device = await Device.findOne({where: {id: status.device_id}})
-  res.render('myStatus', { uniqUrl, myStatus, device })
+  if (status) {
+    const myStatus = await Status.findOne({where: {id: status.status_id}})
+    const device = await Device.findOne({where: {id: status.device_id}})
+    res.render('myStatus', { uniqUrl, myStatus, device })
+  } else {
+    res.sendStatus(404)
+  }
 })
 
 
