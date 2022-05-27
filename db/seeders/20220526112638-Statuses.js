@@ -3,7 +3,6 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Statuses', [
-      { name: "Новый", createdAt: new Date(), updatedAt: new Date() },
       { name: "Ожидает звонка", createdAt: new Date(), updatedAt: new Date() },
       { name: "Ожидает отправки", createdAt: new Date(), updatedAt: new Date() },
       { name: "Отправлен", createdAt: new Date(), updatedAt: new Date() },
