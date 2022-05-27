@@ -79,6 +79,10 @@ body {
   flex-wrap: wrap;
 }
 
+.categ a {
+  text-decoration: none;
+}
+
 .category-name {
   font-family: Calibri, sans-serif;
   font-size: 20px;
@@ -114,9 +118,14 @@ body {
 }
 
 .img {
-  width: 255px;
-  height: 254px;
-  padding: 10px;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.img_carusel {
+  max-height: 250px;
+  max-width: 238px;
+  border-radius: 5%;
 }
 
 .category-name {

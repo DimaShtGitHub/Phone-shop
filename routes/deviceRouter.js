@@ -31,7 +31,6 @@ router.get('/:id', async (req, res) => {
   for (let i = 0; i < allDev.length; i++) {
     allDev[i].images = await Galerey.findAll({where:{device_id : allDev[i].id}});
   }
-
   const type = await Type.findOne({where: {id: req.params.id}})
   let selectType = {}
   createSelectLink(type, selectType)

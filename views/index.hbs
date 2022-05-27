@@ -13,10 +13,12 @@
     <div class="categ">
 
      {{#each categories}}
-      <div  class="one-category">
-        <div id="{{this.id}}" class="category-name">{{this.name}}</div>
-        <div><img id="{{this.id}}" class="img" src="{{this.img}}"></div>
-      </div>
+     <a href="/device/{{this.id}}"> 
+        <div  class="one-category">
+          <div id="{{this.id}}" class="category-name">{{this.name}}</div>
+          <div><img id="{{this.id}}" class="img" src="{{this.img}}"></div>
+        </div>
+      </a>
       {{/each}}
 
     </div>

@@ -28,7 +28,8 @@
   <div class="carousel-inner">
     {{#each this.images}}
     <div class="carousel-item {{#ifeq @index 0}}active{{/ifeq}}">
-      <img src="/{{this.img}}" class="d-block w-100" alt="...">
+      <img src="/{{this.img}}" class="d-block img_carusel" alt="...">
+      {{!-- class="d-block w-100" --}}
     </div>
     {{/each}}
   </div>
