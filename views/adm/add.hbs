@@ -1,6 +1,7 @@
 <ul class="adm-nav">
   <li><a href="/admin">Back</a></li>
   <li><a href="/admin/edit">Edit device</a></li>
+  <li><a href="/admin/cat">Edit categories</a></li>
 </ul>
 
 <form action="/admin/add" method="post" name="admAdd">
@@ -13,8 +14,10 @@
       <option>{{this.name}}</option>
     {{/each}}
   </select></p>
-  <p><input type="file" name="img"></p>
-  <p><input type="file" name="img2"></p>
+  <ul class="buttons">
+    <li><input type="file" name="img"></li>
+    <li><button id="more" type="button">+</button></li>
+  </ul>
   <p><button type="submit">Add</button></p>
 </form>
 <div class="msg"></div>

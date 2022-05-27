@@ -1,0 +1,19 @@
+<ul class="adm-nav">
+  <li><a href="/admin/">Back</a></li>
+  <li><a href="/admin/add">Add device</a></li>
+  <li><a href="/admin/edit">Edit device</a></li>
+</ul>
+
+<h2>Categories:</h2>
+
+<div class="adm-items">
+  {{#each categories}}
+    <div class="adm-card" id="{{this.id}}">
+      <img src="{{this.img}}" class="adm-img">
+      <div>{{this.name}}</div>
+      <button class="adm-btn">Edit</button>
+    </div>
+  {{/each}}
+</div>
+
+<script src="/js/adm/cats.js"></script>

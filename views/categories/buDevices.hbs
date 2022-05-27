@@ -4,32 +4,31 @@
     <h3>{{type.name}}</h3>
     {{/if}}
 
+    <div class="select-new-bu">
+      <a href="/device/new/{{type.id}}" class="new">{{selectType.first}}</a>
+      <a href="/device/bu/{{type.id}}" class="bu">{{selectType.second}}</a>
+      <a href="/device/{{type.id}}" class="all">{{selectType.third}}</a>
+    </div>
+
     <div class="categories">
 
-    {{#each devices}}
-    
-      <div id="{{this.id}}" class="card" style="width: 18rem;">
+    {{#each buDev}}
+      <div id="{{this.id}}" class="card" style="width: 18rem; margin-bottom: 14px; margin-right: 14px;">
         {{!-- <img src="{{this.img}}" class="card-img-top" alt="..."> --}}
         <div class="card-body">
           <div id="carouselExampleIndicators{{this.id}}" class="carousel slide" data-bs-ride="true">
-  <div class="carousel-indicators">
+  {{!-- <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators{{this.id}}" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators{{this.id}}" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators{{this.id}}" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
+  </div> --}}
   
   <div class="carousel-inner">
     {{#each this.images}}
-    <div class="carousel-item {{#ifeq @index 2}}active{{/ifeq}}">
+    <div class="carousel-item {{#ifeq @index 0}}active{{/ifeq}}">
       <img src="/{{this.img}}" class="d-block w-100" alt="...">
     </div>
     {{/each}}
-    {{!-- <div class="carousel-item">
-      <img src="/images/2.jpg.webp" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="/images/3.jpg.webp" class="d-block w-100" alt="...">
-    </div> --}}
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators{{this.id}}" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

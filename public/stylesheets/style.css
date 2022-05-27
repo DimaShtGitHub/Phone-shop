@@ -7,6 +7,11 @@ a {
   color: #00B7FF;
 } */
 
+body {
+  background-color: rgb(175, 170, 181);
+  /* display: flex;
+  align-items: center; */
+}
 .header {
   display: flex;
   justify-content: space-between;
@@ -48,6 +53,19 @@ a {
   padding: 5px;
 }
 
+.allcontent {
+  min-height: 700px;
+}
+
+.video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-content {
+  padding: 28px; border-radius: 28px;
+}
 
 .content {
   display: flex;
@@ -55,13 +73,17 @@ a {
   padding: 40px;
 }
 
+.categ {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 
-.content-name {
+.category-name {
   font-family: Calibri, sans-serif;
   font-size: 20px;
   color: rgb(80, 80, 80);
-  font-weight: 300;
-  margin-left: 4px;
+  font-weight: 600;
 }
 
 .categories {
@@ -71,16 +93,26 @@ a {
   margin-top: 15px;
 }
 
+.categ {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 .one-category {
   position: relative;
-  padding: 5px;
+  /* padding: 5px; */
   width: 200px;
   height: 320px;
+  margin-top: 30px;
+  margin-right: 14px;
+  padding: 6px; border-radius: 14px;
+  background-color: #9e9e9e;
 }
 
 .img {
-  width: 200px;
-  height: 280px;
+  width: 187px;
+  height: 274px;
 }
 
 .category-name {
@@ -88,7 +120,6 @@ a {
   font-size: 20px;
   color: rgb(80, 80, 80);
   font-weight: 600;
-  margin-bottom: 15px;
 }
 
 
@@ -99,8 +130,75 @@ a {
   font-weight: 500;
 }
 
-#card {
-  margin-bottom: 14px;
-  margin-right: 14px;
+
+.adm-table {
+    display: flex;
 }
 
+/* -------------------------bootstrap */
+.container-fluid {
+  text-decoration-color: aliceblue;
+}
+
+.page {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  
+}
+
+.footer {
+  display: flex;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.adm-table div {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    width: 150px;
+    min-width: 30px;
+}
+
+.adm-item {
+    display: flex;
+}
+
+.adm-item div {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    width: 150px;
+    min-width: 30px;
+}
+
+.upd-status {
+    width: 100px;
+
+}
+
+.adm-items {
+    display: flex;
+
+}
+
+.adm-img {
+    width: 200px;
+    height: 200px;
+}
+
+.adm-card {
+    margin: 20px;
+    border: 2px solid black;
+}

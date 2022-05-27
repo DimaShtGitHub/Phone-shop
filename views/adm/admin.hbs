@@ -1,18 +1,31 @@
 <ul class="adm-nav">
   <li><a href="/admin/add">Add device</a></li>
   <li><a href="/admin/edit">Edit device</a></li>
+  <li><a href="/admin/cat">Edit categories</a></li>
 </ul>
 
 <h2>Orders:</h2>
 <div class="orders">
+  <div class="adm-table" id="{{this.id}}">
+    <div style="width: 25px;"><b>#</b></div>
+    <div class="device"><b>📱</b></div>
+    <div class="new"><b>👀</b></div>
+    <div class="price"><b>💰</b></div>
+    <div class="name"><b>👥</b></div>
+    <div class="phone"><b>☎️</b></div>
+    <div class="comment"><b>💬</b></div>
+    <div class="status"><b>🤔</b></div>
+    <div class="status"><b></b></div>
+  </div>
   {{#each orders}}
-    <div class="table" id="{{this.id}}">
-      <div>{{this.id}}</div>
+    <div class="adm-table" id="{{this.id}}">
+      <div style="width: 25px;">{{this.id}}</div>
       <div class="device">{{this.phone_name}}</div>
       <div class="new">{{this.new_dev}}</div>
       <div class="price">{{this.price}}</div>
       <div class="name">{{this.name}}</div>
       <div class="phone">{{this.phone}}</div>
+      <div class="comment">{{this.comment}}</div>
       <div class="status">{{this.status}}</div>
       <button class="edit">change status</button>
     </div>
