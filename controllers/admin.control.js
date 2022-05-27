@@ -98,6 +98,13 @@ exports.delDevice = async (req, res) => {
           id: img.id
         }})
     }
+
+    const orders = await Order.findAll({where: {device_id: req.params.id}})
+
+    for (const order of orders) {
+      await Order.destroy({where: {id: order.id}})
+    }
+
     await Device.destroy({
       where: {id: req.params.id}
     })
