@@ -1,6 +1,7 @@
 const express = require('express');
 const {Order} = require('../db/models');
 const {Status} = require('../db/models');
+const {send} = require('../controllers/mailer.control')
 const router = express.Router();
 
 router.post('/', async (req, res) => {
@@ -10,6 +11,7 @@ router.post('/', async (req, res) => {
   const url = (Math.random().toString(36).substring(2,7)) + (Math.random().toString(36).substring(2,7));
   const order = await Order.create({ device_id,status_id,new_dev,name, number, comment, url });
   console.log(device_id,name, number, comment);
+  await send(`${name}, ${number}, ${comment}`)
   res.json(order.dataValues);
 });
 
