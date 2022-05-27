@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     number: DataTypes.STRING,
     comment: DataTypes.STRING,
+    url: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Order',

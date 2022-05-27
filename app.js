@@ -27,6 +27,11 @@ const PORT = process.env.PORT ?? 3100;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+hbs.registerHelper('ifeq', function (a, b, options) {
+  if (a == b) { return 'active' }
+  return 
+  }); 
+
 
 app.use(logger('dev'));
 app.use(express.json());
