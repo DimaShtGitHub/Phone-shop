@@ -1,5 +1,5 @@
 const express = require('express');
-const {Device, Type} = require('../db/models');
+const {Device, Type, Galerey} = require('../db/models');
 const router = express.Router();
 
 
@@ -28,6 +28,10 @@ router.get('/', async (req, res) => {
 // получение всех девайсов
 router.get('/:id', async (req, res) => {
   const allDev = await Device.findAll({where: {type_id: req.params.id}});
+  for (let i = 0; i < allDev.length; i++) {
+    allDev[i].images = await Galerey.findAll({where:{device_id : allDev[i].id}});
+  }
+
   const type = await Type.findOne({where: {id: req.params.id}})
   let selectType = {}
   createSelectLink(type, selectType)
@@ -38,6 +42,9 @@ router.get('/:id', async (req, res) => {
 // получение всех новых или оригиналов 
 router.get('/new/:id', async (req, res) => {
   const newDev = await Device.findAll({where: {type_id: req.params.id, new_device: true}});
+  for (let i = 0; i < newDev.length; i++) {
+    newDev[i].images = await Galerey.findAll({where:{device_id : newDev[i].id}});
+  }
   const type = await Type.findOne({where: {id: req.params.id}});
   let selectType = {};
   createSelectLink(type, selectType);
@@ -48,6 +55,9 @@ router.get('/new/:id', async (req, res) => {
 // получение всех б/у или реплик 
 router.get('/bu/:id', async (req, res) => {
   const buDev = await Device.findAll({where: {type_id: req.params.id, new_device: false}});
+  for (let i = 0; i < buDev.length; i++) {
+    buDev[i].images = await Galerey.findAll({where:{device_id : buDev[i].id}});
+  }
   const type = await Type.findOne({where: {id: req.params.id}});
   let selectType = {};
   createSelectLink(type, selectType);

@@ -14,8 +14,34 @@
 
     {{#each allDev}}
       <div id="{{this.id}}" class="card" style="width: 18rem; margin-bottom: 14px; margin-right: 14px;">
-        <img src="{{this.img}}" class="card-img-top" alt="...">
+        {{!-- <img src="{{this.img}}" class="card-img-top" alt="..."> --}}
         <div class="card-body">
+           <div id="carouselExampleIndicators{{this.id}}" class="carousel slide" data-bs-ride="true">
+  {{!-- <div class="carousel-indicators">
+    {{#each this.images}} --}}
+    {{!-- <button type="button" data-bs-target="#carouselExampleIndicators{{this.id}}" data-bs-slide-to="{{@index}}" {{#ifeq @index 0}}class="active" aria-current="true"{{/ifeq}} aria-label="Slide {{@index}}"></button>
+     {{/each}}
+    {{!-- <button type="button" data-bs-target="#carouselExampleIndicators{{this.id}}" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators{{this.id}}" data-bs-slide-to="2" aria-label="Slide 3"></button> --}}
+  {{!-- </div> --}} 
+  
+  <div class="carousel-inner">
+    {{#each this.images}}
+    <div class="carousel-item {{#ifeq @index 0}}active{{/ifeq}}">
+      <img src="/{{this.img}}" class="d-block img_carusel" alt="...">
+      {{!-- class="d-block w-100" --}}
+    </div>
+    {{/each}}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators{{this.id}}" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators{{this.id}}" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
           <h5 class="card-title">{{this.name}}</h5>
           <p class="card-text">{{this.info}}</p>
           <p class="card-text">Цена: {{this.price}} руб.</p>
