@@ -1,4 +1,5 @@
 const {Admin, Order, Device, Type, Status, Galerey} = require('../db/models')
+const {keepalives} = require("pg/lib/defaults");
 
 exports.isAdmin = (req, res, next) => {
   if (!req.session?.isAdmin) return res.render('adm/login')
@@ -131,4 +132,31 @@ exports.updStatus = async (req, res) => {
     return res.status(500).end();
   }
   res.status(200).end();
+}
+
+exports.catPage = async (req, res) => {
+  try {
+    const categories = await Type.findAll({raw: true})
+    console.log(categories)
+    res.render('adm/cat', {categories})
+  } catch (err) {
+    res.status(500).json({message: err.message})
+  }
+}
+
+exports.updCat = async (req, res) => {
+  console.log(req.files)
+  let pathImg;
+  try {
+    const format = req.files.img.name.split('.').at(-1)
+    pathImg = '/upload/'
+      + (Math.random().toString(36).substring(2,7))
+      + (Math.random().toString(36).substring(2,7))
+      + '.' + format
+    await req.files.img.mv(`public${pathImg}`)
+    await Type.update({img: pathImg}, {where: {id: req.params.id}})
+  } catch (err) {
+    return res.status(500).json({message: err.message})
+  }
+  res.status(200).json({img: pathImg});
 }
